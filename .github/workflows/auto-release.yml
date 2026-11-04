@@ -40,10 +40,12 @@ jobs:
       run: |
         mkdir -p ${{ env.CACHE_DIR }}
         mkdir -p ${{ env.OUTPUT_DIR }}
-        
-    - name: 🔍 检测最新版本
+
+      - name: 🔍 检测最新版本
       id: version_check
       shell: bash
+      env:
+        PYTHONIOENCODING: utf-8
       run: |
         echo "🔍 正在检测最新版本..."
         python scripts/check_version.py
