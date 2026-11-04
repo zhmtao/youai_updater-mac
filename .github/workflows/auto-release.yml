@@ -1,4 +1,4 @@
-name: 🎁 有爱插件自动打包
+name: YouAi Release
 
 on:
   schedule:
