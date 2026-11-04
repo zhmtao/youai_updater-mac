@@ -165,7 +165,7 @@ jobs:
         echo "" >> "${{ env.OUTPUT_DIR }}/README.txt"
         echo "🔗 相关链接:" >> "${{ env.OUTPUT_DIR }}/README.txt"
         echo "- 官网：https://dd.163.com" >> "${{ env.OUTPUT_DIR }}/README.txt"
-        echo "- GitHub: https://github.com/codejorker/youai_updater_mac" >> "${{ env.OUTPUT_DIR }}/README.txt"
+        echo "- GitHub: https://github.com/zhmtao/youai_updater-mac" >> "${{ env.OUTPUT_DIR }}/README.txt"
         echo "" >> "${{ env.OUTPUT_DIR }}/README.txt"
         echo "=====================================" >> "${{ env.OUTPUT_DIR }}/README.txt"
         echo "✅ 生成版本说明"
@@ -225,7 +225,7 @@ jobs:
           - 适用于 Mac 用户
           
           ---
-          🤖 自动生成 | 👤 维护者：@codejorker
+          🤖 自动生成 | 👤 维护者：@zhmtao
         draft: false
         prerelease: false
         make_latest: true
