@@ -251,6 +251,6 @@ jobs:
         echo "📁 输出目录：${{ env.OUTPUT_DIR }}"
         echo ""
         echo "📤 已发布到 GitHub Releases"
-        echo "🔗 查看：https://github.com/codejorker/youai_updater/releases"
+        echo "🔗 查看：https://github.com/zhmtao/youai_updater-mac/releases"
         echo ""
         echo "======================================"
