@@ -229,7 +229,6 @@ jobs:
           🤖 自动生成 | 👤 维护者：@zhmtao
         draft: false
         prerelease: false
-        make_latest: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
