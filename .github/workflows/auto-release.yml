@@ -189,7 +189,7 @@ jobs:
           echo "✅ SHA256: $(cat ${OUTPUT_DIR}/SHA256SUMS.txt)"
         fi
         
-    - name: 📤 发布到 GitHub Releases
+    - name: 🚀 发布到 GitHub Releases
       uses: softprops/action-gh-release@v1
       with:
         files: |
@@ -200,19 +200,20 @@ jobs:
         name: "有爱插件 v${{ steps.get_info.outputs.version }}"
         body: |
           ## 📦 有爱插件自动打包版本
-          
+
           ### ℹ️ 版本信息
-          - **版本号**: ${{ steps.get_info.outputs.version }}
-          - **打包时间**: $(date '+%Y-%m-%d %H:%M:%S') (UTC)
-          - **文件大小**: $(ls -lh youai-plugin-*.zip | awk '{print $5}')
-          
+          - **版本号**：${{ steps.get_info.outputs.version }}
+          - **打包时间**：$(date '+%Y-%m-%d %H:%M:%S') (UTC)
+          - **文件大小**：$(ls -lh youai-plugin-*.zip | awk '{print $5}')
+
           ### 📝 更新说明
           本周期的自动打包版本，包含最新的有爱插件。
-          
-          ### 📋 文件列表
+
+          ### 🗂️ 文件列表
           - `youai-plugin-${{ steps.get_info.outputs.version }}.zip` - 插件压缩包
           - `README.txt` - 使用说明
-          - `SHA256SUMS.txt` - 文件校验
+          - `SHA256SUMS.txt` - 文件校验    
+
           
           ### 🔧 安装方法
           1. 下载 `youai-plugin-${{ steps.get_info.outputs.version }}.zip`
