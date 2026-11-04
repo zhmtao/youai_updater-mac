@@ -21,6 +21,8 @@ env:
 jobs:
   check-and-package:
     runs-on: windows-latest
+    permissions:
+      contents: write  # 赋予创建 Release 和提交 Tag 的写入权限
     
     steps:
     - name: 📦 检出仓库
@@ -193,11 +195,13 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          ${{ env.OUTPUT_DIR }}/youai-plugin-*.zip
-          ${{ env.OUTPUT_DIR }}/README.txt
-          ${{ env.OUTPUT_DIR }}/SHA256SUMS.txt
+          youai-plugin-*.zip
+          README.txt
+          SHA256SUMS.txt
         tag_name: plugin-${{ steps.get_info.outputs.version }}
         name: "有爱插件 v${{ steps.get_info.outputs.version }}"
+        draft: false
+        prerelease: false
         body: |
           ## 📦 有爱插件自动打包版本
 
@@ -212,23 +216,20 @@ jobs:
           ### 🗂️ 文件列表
           - `youai-plugin-${{ steps.get_info.outputs.version }}.zip` - 插件压缩包
           - `README.txt` - 使用说明
-          - `SHA256SUMS.txt` - 文件校验    
+          - `SHA256SUMS.txt` - 文件校验
 
-          
           ### 🔧 安装方法
           1. 下载 `youai-plugin-${{ steps.get_info.outputs.version }}.zip`
           2. 解压到任意目录
           3. 将 `Interface` 文件夹复制到魔兽安装目录
-          
+
           ### ⚠️ 注意事项
           - 本版本由 GitHub Actions 自动打包发布
           - 文件来源：网易有爱官网
           - 适用于 Mac 用户
-          
+
           ---
           🤖 自动生成 | 👤 维护者：@zhmtao
-        draft: false
-        prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
