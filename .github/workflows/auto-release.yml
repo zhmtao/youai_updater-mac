@@ -171,13 +171,11 @@ jobs:
         echo "✅ 生成版本说明"
         
     - name: 🗜️ 压缩输出文件
-      shell: bash
+      shell: powershell
       run: |
-        cd "${{ env.OUTPUT_DIR }}"
-        VERSION="${{ steps.get_info.outputs.version }}"
-        zip -r "../youai-plugin-${VERSION}.zip" ./*
-        echo "✅ 压缩完成：youai-plugin-${VERSION}.zip"
-        ls -lh ../youai-plugin-${VERSION}.zip
+        $VERSION = "${{ steps.get_info.outputs.version }}"
+        Compress-Archive -Path "${{ env.OUTPUT_DIR }}\*" -DestinationPath "youai-plugin-${VERSION}.zip" -Force
+        Write-Host "✅ 压缩完成：youai-plugin-${VERSION}.zip"
         
     - name: 🔐 计算 SHA256
       shell: bash
